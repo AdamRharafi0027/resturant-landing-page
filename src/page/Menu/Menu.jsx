@@ -9,6 +9,7 @@ import tacos from "../../../public/images/tacos.png"
 import cola from "../../../public/images/cola.png"
 import pizza from "../../../public/images/pizza.png"
 import burger from "../../../public/images/burger.png"
+import Cards from "@/components/Cards/Cards";
 
 const menuItems = [
   {
@@ -101,32 +102,14 @@ const Menu = () => {
 
       <div className="max-w-7xl mx-auto px-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {filteredItems.map((item) => (
-          <div
+          <Cards 
             key={item.id}
-            className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform"
-          >
-            <Image
-              src={item.image}
-              alt={item.name}
-              width={400}
-              height={300}
-              className="w-full h-60 object-contain"
-            />
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold text-amber-400">
-                {item.name}
-              </h3>
-              <p className="text-gray-300 mt-2">{item.description}</p>
-              <div className="flex justify-between items-center mt-6">
-                <span className="text-xl font-bold">{item.price}</span>
-                <Link href="#orders">
-                  <button className="cursor-pointer bg-amber-400 hover:bg-amber-500 text-black py-2 px-4 rounded-lg font-semibold transition">
-                    Order Now
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
+            id={item.id}
+            name={item.name}
+            image={item.image}
+            description={item.description}
+            price={item.price}
+          />
         ))}
       </div>
     </section>

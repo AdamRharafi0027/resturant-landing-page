@@ -1,86 +1,79 @@
-"use client"
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 import logo from "../../../public/images/logo-rm.png";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="flex justify-between items-center px-9 py-1  relative">
-      <Image src={logo} className="w-20 md:w-40" alt="Restaurant Logo" />
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
+      <div className="container mx-auto px-6 flex justify-between items-center h-20">
+        
+        {/* Logo */}
+        <Image
+          src={logo}
+          alt="Restaurant Logo"
+          className="w-24 md:w-32"
+          priority
+        />
 
-      <nav className="hidden md:block">
-        <ul className="flex items-center gap-12">
-          <li className="text-2xl text-white hover:text-amber-400 transition-all">
-            <Link href={"/"}>Home</Link>
-          </li>
-          <li className="text-2xl text-white hover:text-amber-400 transition-all">
-            <Link href={"#about"}>About</Link>
-          </li>
-          <li className="text-2xl text-white hover:text-amber-400 transition-all">
-            <Link href={"#orders"}>Orders</Link>
-          </li>
-          <li className="text-2xl text-white hover:text-amber-400 transition-all">
-            <Link href={"#menu"}>Menu</Link>
-          </li>
-        </ul>
-      </nav>
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-10">
+          {["Home", "About", "Orders", "Menu"].map((item) => (
+            <Link
+              key={item}
+              href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+              className="text-lg text-white hover:text-amber-400 transition"
+            >
+              {item}
+            </Link>
+          ))}
+        </nav>
 
-      <div className="hidden md:block">
-        <Link href={"#footer"}>
-          <button className="bg-amber-400 rounded-sm py-2 px-6 text-2xl cursor-pointer hover:bg-amber-500 transition-all">
-            Contact
-          </button>
-        </Link>
-      </div>
-
-      <button
-        onClick={() => setMenuOpen(!menuOpen)}
-        className="md:hidden text-white"
-      >
-        {menuOpen ? <X size={36} /> : <Menu size={36} />}
-      </button>
-
-      {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-black text-white flex flex-col items-center gap-6 py-6 md:hidden z-50">
-          <Link
-            href={"/"}
-            className="text-2xl hover:text-amber-400"
-            onClick={() => setMenuOpen(false)}
-          >
-            Home
-          </Link>
-          <Link
-            href={"#about"}
-            className="text-2xl hover:text-amber-400"
-            onClick={() => setMenuOpen(false)}
-          >
-            About
-          </Link>
-          <Link
-            href={"#orders"}
-            className="text-2xl hover:text-amber-400"
-            onClick={() => setMenuOpen(false)}
-          >
-            Orders
-          </Link>
-          <Link
-            href={"#menu"}
-            className="text-2xl hover:text-amber-400"
-            onClick={() => setMenuOpen(false)}
-          >
-            Menu
-          </Link>
-          <Link href={"#footer"}>
-            <button className="bg-amber-400 rounded-sm py-2 px-6 text-2xl cursor-pointer hover:bg-amber-500 transition-all">
+        {/* Desktop Button */}
+        <div className="hidden md:block">
+          <Link href="#footer">
+            <button className="bg-amber-400 text-black font-semibold px-5 py-2 rounded-md hover:bg-amber-500 transition">
               Contact
             </button>
           </Link>
         </div>
-      )}
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-white z-50"
+        >
+          {menuOpen ? <X size={30} /> : <Menu size={30} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu (full screen overlay) */}
+      <div
+        className={`fixed top-0 left-0 w-full h-screen bg-black/95 flex flex-col items-center justify-center gap-8 text-white text-2xl transition-transform duration-300 ${
+          menuOpen ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        {["Home", "About", "Orders", "Menu"].map((item) => (
+          <Link
+            key={item}
+            href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+            onClick={() => setMenuOpen(false)}
+            className="hover:text-amber-400 transition"
+          >
+            {item}
+          </Link>
+        ))}
+
+        <Link href="#footer" onClick={() => setMenuOpen(false)}>
+          <button className="mt-4 bg-amber-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-amber-500 transition">
+            Contact
+          </button>
+        </Link>
+      </div>
     </header>
   );
 };

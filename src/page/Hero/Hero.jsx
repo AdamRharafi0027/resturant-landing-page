@@ -1,52 +1,63 @@
 import Image from "next/image";
 import background from "../../../public/images/back.jpg";
 import button from "../../../public/images/button.png";
-import hero from "../../../public/images/hero-rm.png";
+import burger from "../../../public/images/pack1.png";
 import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="text-white">
+    <section className="relative w-full min-h-screen text-white flex items-center justify-center overflow-hidden">
+      
+      {/* Background */}
       <Image
         src={background}
         alt="Background"
-        className="w-full h-screen object-cover absolute top-0 left-0 -z-10"
+        fill
         priority
+        className="object-cover -z-20"
       />
 
-      <main className="w-full h-screen flex flex-col md:flex-row items-center justify-center md:justify-around px-6 text-center md:text-left md:-mt-30">
-        
-        <aside className="max-w-xl">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
-            Taste the Real Burger Experience
-          </h1>
-          <h4 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl my-6 md:my-12">
-            Fresh ingredients, bold flavors, and fast delivery right to your door
-          </h4>
-          
+      {/* Dark overlay for better text visibility */}
+      <div className="absolute inset-0 bg-black/60 -z-10" />
 
-          <Link href={"#menu"} className="relative inline-block">
+      {/* Content */}
+      <div className="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between gap-10 py-10">
+        
+        {/* Text Content */}
+        <div className="max-w-xl text-center md:text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
+            Taste the Real <span className="text-yellow-400">Burger</span> Experience
+          </h1>
+
+          <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-200">
+            Fresh ingredients, bold flavors, and fast delivery right to your door.
+          </p>
+
+          {/* CTA Button */}
+          <Link href="#menu" className="inline-block mt-6 relative group">
             <Image
               src={button}
               alt="Order Button"
-              className="w-40 sm:w-52 md:w-94"
+              className="w-40 sm:w-48 md:w-56 transition-transform duration-300 group-hover:scale-105"
             />
-            <span className="cursor-pointer absolute inset-0 flex items-center justify-center text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
+            <span className="absolute inset-0 flex items-center justify-center text-lg sm:text-xl md:text-2xl font-bold">
               Order Now
             </span>
           </Link>
-        </aside>
+        </div>
 
-        <aside className="mt-8 md:mt-0">
-          <Image 
-            src={hero}
+        {/* Image Content */}
+        <div className="flex justify-center md:justify-end">
+          <Image
+            src={burger}
             alt="Burger"
-            width={350}
-            height={350}
-            className="w-60 sm:w-72 md:w-[450px] lg:w-[500px]"
+            width={500}
+            height={500}
+            className="w-64 sm:w-80 md:w-[400px] lg:w-[500px] drop-shadow-2xl"
+            priority
           />
-        </aside>
-      </main>
+        </div>
+      </div>
     </section>
   );
 };

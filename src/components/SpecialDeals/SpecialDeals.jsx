@@ -48,13 +48,13 @@ const SpecialDeals = () => {
             key={deal.id}
             className="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform"
           >
-            <Image
+            <div className="flex justify-center mb-4">
+              <Image
               src={deal.image}
               alt={deal.title}
-              width={400}
-              height={300}
-              className="w-full h-60 object-contain"
+              className="w-50 h-60 object-contain"
             />
+            </div>
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-amber-400">
                 {deal.title}
