@@ -4,6 +4,7 @@ import SpecialDeals from '@/components/SpecialDeals/SpecialDeals'
 import Hero from '@/sections/Hero/Hero'
 import MenuSection from '@/sections/MenuSection/MenuSection'
 import OurLocations from '@/sections/OurLocations/OurLocations'
+import Reviews from '@/sections/Reviews/Reviews'
 import React from 'react'
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
     <SpecialDeals />
     <DiscountBanner />
     <OurLocations />
+    <Reviews />
    
     </>
   )

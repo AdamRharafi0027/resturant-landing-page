@@ -35,11 +35,11 @@ const Hero = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
         className="max-w-xl text-center md:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
+          <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
             Taste the Real <span className="text-yellow-400">Burger</span> Experience
           </h1>
 
-          <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-200">
+          <p className="w-70 mt-4 text-base sm:text-lg md:text-xl text-gray-200">
             Fresh ingredients, bold flavors, and fast delivery right to your door.
           </p>
 
@@ -48,9 +48,9 @@ const Hero = () => {
             <Image
               src={button}
               alt="Order Button"
-              className="w-40 sm:w-48 md:w-56 transition-transform duration-300 group-hover:scale-105"
+              className="w-50 lg:w-60 md:w-56 transition-transform duration-300 group-hover:scale-105"
             />
-            <span className="absolute inset-0 flex items-center justify-center text-lg sm:text-xl md:text-2xl font-bold">
+            <span className="absolute inset-0 flex items-center justify-center text-2xl sm:text-xl md:text-2xl font-bold">
               Order Now
             </span>
           </Link>
