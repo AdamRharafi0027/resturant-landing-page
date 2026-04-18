@@ -5,7 +5,7 @@ Show the resturant Food burgers and pizza
 
 # Demo 
 [Live Demo](https://resturant-landing-page-two.vercel.app/)
-![App screenshot](./public//images/project screenshot.png)
+![App screenshot](./public/images/project screenshot.png)
 
 ## Built With 
 - Nexjs 15 
