@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer id="footer" className="bg-gray-900 text-gray-400 py-10">
+    <footer id="footer" className="bg-gray-900 text-white/60 py-10">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
         
         {/* اسم أو شعار */}
@@ -95,7 +95,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-center text-gray-600 mt-10 text-sm">
+      <div className="text-center text-white/60 mt-10 text-sm">
         &copy; {new Date().getFullYear()} RealBurger. All rights reserved.
       </div>
     </footer>

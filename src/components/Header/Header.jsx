@@ -56,6 +56,7 @@ const navLinks = [
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-white z-50"
+          aria-labelledby="Toggle menu"
         >
           {menuOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
