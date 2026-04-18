@@ -1,5 +1,9 @@
 import { Geist, Geist_Mono, Piedra } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header/Header";
+import ContactOrder from "@/components/ContactOrder/ContactOrder";
+import WhatsAppButton from "@/components/WhatsAppButton/WhatsAppButton";
+import Footer from "@/sections/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +30,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${piedra.variable}`}>
       <body className="antialiased font-piedra">
+        <Header />
         {children}
+        <WhatsAppButton />
+    <ContactOrder />
+     <Footer />
       </body>
     </html>
   );

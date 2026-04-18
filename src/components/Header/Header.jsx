@@ -7,7 +7,13 @@ import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+const navLinks = [
+  // ["Home", "About", "Orders", "Menu"]
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Menu", href: "/menu" }
+];
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
       <div className="container mx-auto px-6 flex justify-between items-center h-20">
@@ -22,13 +28,13 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
-          {["Home", "About", "Orders", "Menu"].map((item) => (
+          {navLinks.map((item) => (
             <Link
-              key={item}
-              href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+              key={item.name}
+              href={item.href}
               className="text-lg text-white hover:text-amber-400 transition"
             >
-              {item}
+              {item.name}
             </Link>
           ))}
         </nav>
@@ -57,14 +63,14 @@ const Header = () => {
           menuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        {["Home", "About", "Orders", "Menu"].map((item) => (
+        {navLinks.map((item) => (
           <Link
-            key={item}
-            href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+            key={item.name}
+            href={item.href}
             onClick={() => setMenuOpen(false)}
             className="hover:text-amber-400 transition"
           >
-            {item}
+            {item.name}
           </Link>
         ))}
 

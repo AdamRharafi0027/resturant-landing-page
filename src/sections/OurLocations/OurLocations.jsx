@@ -1,7 +1,7 @@
 const locations = [
   {
     id: 1,
-    name: "Casablance Branch",
+    name: "Casablanca Branch",
     address: "123 Main St, City Center",
     phone: "+212 600 123 456",
   },

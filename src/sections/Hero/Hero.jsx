@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen text-white flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen text-white flex items-center justify-center overflow-hidden px-20">
       
       {/* Background */}
       <Image

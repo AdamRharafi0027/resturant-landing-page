@@ -1,34 +1,34 @@
 
-import tacos from "../../../public/images/tacos.png";
-import shawarma from "../../../public/images/shawarma.png";
-import burger1 from "../../../public/images/burger1-rm.png";
-import burger2 from "../../../public/images/burger.png"
+import tacos from "../../../public/images/tacos/tacos.png";
+import shawarma from "../../../public/images/tacos/shawarma.png";
+import burgerclassic from "../../../public/images/burgers/classic burger.png";
+import burger2 from "../../../public/images/burgers/burger.png"
 import Cards from "../Cards/Cards";
 
 const dishes = [
   {
     id: 1,
-    name: "Classic Beef Burger",
-    description:
-      "Juicy grilled beef patty with fresh lettuce, tomato, and cheese.",
-    price: "80.99 DH",
-    image: burger2,
+    category: "Burgers",
+        name: "Chicken Burger",
+        price: "38.00 DH",
+        description: "Crispy fried chicken breast with mayo.",
+        image: burger2,
   },
   {
     id: 2,
-    name: "Crispy Chicken Burger",
-    description:
-      "Golden fried chicken breast with creamy mayo and pickles.",
-    price: "70.49 DH",
-    image: shawarma,
+    category: "Tacos",
+        name: "Shawarma",
+        price: "35.00 DH",
+        description: "Spiced meat wrapped in flatbread with tahini sauce.",
+        image: shawarma,
   },
   {
     id: 3,
-    name: "Veggie Delight",
-    description:
-      "Grilled veggie patty with avocado and special sauce.",
-    price: "60.99 DH",
-    image: burger1,
+    category: "Burgers",
+        name: " Classic Burger",
+        price: "35.00 DH",
+        description: "Grilled beef patty, cheddar cheese, lettuce, tomato.",
+        image: burgerclassic,
   },
 ];
 

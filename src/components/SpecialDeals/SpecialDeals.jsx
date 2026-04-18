@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import pack1 from "../../../public/images/pack1.png"
 import SpicyWings from "../../../public/images/SpicyWings.png"
-import pizza from "../../../public/images/pizza.png"
+import pizza from "../../../public/images/pizza/pizza.png"
 const deals = [
   {
     id: 1,
