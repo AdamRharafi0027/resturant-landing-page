@@ -1,36 +1,9 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import pack1 from "../../../public/images/pack1.png"
-import SpicyWings from "../../../public/images/SpicyWings.png"
-import pizza from "../../../public/images/pizza/pizza.png"
+
 import { motion } from "motion/react";
-const deals = [
-  {
-    id: 1,
-    title: "Double Cheese Burger Combo",
-    description: "Get 2 juicy cheese burgers + fries + drink at an amazing price.",
-    oldPrice: "15.99 DH",
-    newPrice: "10.99 DH",
-    image: pack1,
-  },
-  {
-    id: 2,
-    title: "Family Pizza Feast",
-    description: "2 Large pizzas + 2 drinks + garlic bread for the whole family.",
-    oldPrice: "29.99 DH",
-    newPrice: "22.50 DH",
-    image: pizza,
-  },
-  {
-    id: 3,
-    title: "Family Burger Combo",
-    description: "2 Burgers + 2 Fries + 2 Drinks",
-    oldPrice: "12.00 DH",
-    newPrice: "8.50 DH",
-    image: SpicyWings,
-  },
-];
+import specialDealsData from "@/data/specialDealsData";
 
 const SpecialDeals = () => {
   return (
@@ -45,7 +18,7 @@ const SpecialDeals = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        {deals.map((deal) => (
+        {specialDealsData.map((deal) => (
           <motion.div
           key={deal.id}
               initial={{ opacity: 0, y: 30 }}

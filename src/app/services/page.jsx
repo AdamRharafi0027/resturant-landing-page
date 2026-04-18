@@ -1,39 +1,21 @@
+"use client"
 import Link from 'next/link';
-import React from 'react'
-
+import { motion } from "motion/react"
+import servicesData from '@/data/servicesData';
 const Services = () => {
-  const services = [
-    {
-      id: 1,
-      icon: "🍔",
-      title: "Quick Pickup",
-      description: "Order ahead and pick up fresh, hot meals in minutes for your busy schedule.",
-    },
-    {
-      id: 2,
-      icon: "🚚",
-      title: "Fast Delivery",
-      description: "Enjoy speedy delivery across the city with carefully packaged food that arrives warm.",
-    },
-    {
-      id: 3,
-      icon: "🥗",
-      title: "Catering Services",
-      description: "From office lunches to celebrations, we offer custom catering for every event.",
-    },
-    {
-      id: 4,
-      icon: "🎉",
-      title: "Party Bundles",
-      description: "Shareable meal bundles designed for groups, parties, and family gatherings.",
-    },
-  ];
+  
 
   return (
     <section className="pt-28 pb-20 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-sm uppercase tracking-[0.35em] text-amber-400 mb-4">
+        <motion.div
+  
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6}}
+        className="text-center mb-16">
+          <p className="text-xl uppercase tracking-[0.35em] text-amber-400 mb-4">
             Our services
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -42,12 +24,16 @@ const Services = () => {
           <p className="text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
             Discover convenient ordering, fast delivery, catering, and special meal bundles built to make your dining experience effortless and delicious.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-16">
-          {services.map((service) => (
-            <div
-              key={service.id}
+          {servicesData.map((service) => (
+            <motion.div
+            key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: service.id * 0.1 }}
               className="bg-gray-800/80 border border-white/10 rounded-3xl p-8 shadow-xl shadow-black/20 hover:border-amber-400 transition-all duration-300"
             >
               <div className="text-5xl mb-5">{service.icon}</div>
@@ -57,12 +43,17 @@ const Services = () => {
               <p className="text-gray-300 leading-relaxed">
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] items-center">
-          <div className="bg-amber-400/10 border border-amber-400/20 rounded-3xl p-10">
+          <motion.div
+          initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+           className="bg-amber-400/10 border border-amber-400/20 rounded-3xl p-10">
             <h2 className="text-3xl font-bold text-white mb-4">Tailored service for every craving.</h2>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Whether you're ordering for yourself, a family, or a full event, we provide flexible options, handcrafted support, and delicious food delivered on your schedule.
@@ -73,9 +64,14 @@ const Services = () => {
               <li>• Group-friendly meal packages</li>
               <li>• In-app order tracking and support</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-white/10 rounded-3xl p-10">
+          <motion.div
+          initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+          className="bg-gradient-to-br from-gray-900 to-gray-800 border border-white/10 rounded-3xl p-10">
             <h3 className="text-2xl font-semibold text-amber-400 mb-4">Ready to get started?</h3>
             <p className="text-gray-300 mb-8 leading-relaxed">
               Browse our full menu or place an order now and let us handle the rest. Great taste is just a few clicks away.
@@ -94,7 +90,7 @@ const Services = () => {
                 Order Now
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
