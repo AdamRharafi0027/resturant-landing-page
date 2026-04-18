@@ -1,30 +1,40 @@
+"use client"
 import Image from "next/image";
 import background from "../../../public/images/back.jpg";
 import button from "../../../public/images/button.png";
 import burger from "../../../public/images/pack1.png";
 import Link from "next/link";
-
+import { motion } from "motion/react"
 const Hero = () => {
   return (
     <section className="relative w-full min-h-screen text-white flex items-center justify-center overflow-hidden px-20">
       
       {/* Background */}
-      <Image
+      
+
+        <Image
         src={background}
         alt="Background"
         fill
         priority
         className="object-cover -z-20"
       />
+  
 
       {/* Dark overlay for better text visibility */}
       <div className="absolute inset-0 bg-black/60 -z-10" />
 
       {/* Content */}
-      <div className="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between gap-10 py-10">
+      <div 
+      
+      className="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between gap-10 py-10">
         
         {/* Text Content */}
-        <div className="max-w-xl text-center md:text-left">
+        <motion.div
+        initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+        className="max-w-xl text-center md:text-left">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
             Taste the Real <span className="text-yellow-400">Burger</span> Experience
           </h1>
@@ -44,10 +54,14 @@ const Hero = () => {
               Order Now
             </span>
           </Link>
-        </div>
+        </motion.div>
 
         {/* Image Content */}
-        <div className="flex justify-center md:justify-end">
+        <motion.div
+        initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+        className="flex justify-center md:justify-end">
           <Image
             src={burger}
             alt="Burger"
@@ -56,7 +70,7 @@ const Hero = () => {
             className="w-64 sm:w-80 md:w-[400px] lg:w-[500px] drop-shadow-2xl"
             priority
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

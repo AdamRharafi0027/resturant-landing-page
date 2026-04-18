@@ -1,3 +1,5 @@
+"use client"
+import { motion } from "motion/react";
 const locations = [
   {
     id: 1,
@@ -32,8 +34,12 @@ const OurLocations = () => {
 
         <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-10">
           {locations.map((loc) => (
-            <div
-              key={loc.id}
+            <motion.div
+            key={loc.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: loc.id * 0.1 }}
               className="cursor-pointer bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-amber-400 transition"
             >
               <h3 className="text-2xl font-semibold mb-2 text-amber-400">
@@ -41,7 +47,7 @@ const OurLocations = () => {
               </h3>
               <p className="text-gray-300 mb-3">{loc.address}</p>
               <p className="font-semibold">📞 {loc.phone}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,8 +1,10 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import pack1 from "../../../public/images/pack1.png"
 import SpicyWings from "../../../public/images/SpicyWings.png"
 import pizza from "../../../public/images/pizza/pizza.png"
+import { motion } from "motion/react";
 const deals = [
   {
     id: 1,
@@ -44,8 +46,13 @@ const SpecialDeals = () => {
 
       <div className="max-w-7xl mx-auto px-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {deals.map((deal) => (
-          <div
-            key={deal.id}
+          <motion.div
+          key={deal.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: deal.id * 0.1 }}
+            
             className="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform"
           >
             <div className="flex justify-center mb-4">
@@ -76,7 +83,7 @@ const SpecialDeals = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

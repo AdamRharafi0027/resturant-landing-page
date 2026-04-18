@@ -1,10 +1,18 @@
-
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react"
 const Cards = ({id, name, image, description, price}) => {
   return (
     <>
-        <div
+     <motion.div
+              key={id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: id * 0.1 }}
+            >
+             <div
             key={id}
             className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 hover:scale-105 hover:border-amber-400/40 transition duration-300"
           >
@@ -40,7 +48,9 @@ const Cards = ({id, name, image, description, price}) => {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> 
+            </motion.div>
+        
     </>
   )
 }

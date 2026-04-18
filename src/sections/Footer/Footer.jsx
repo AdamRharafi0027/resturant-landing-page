@@ -17,14 +17,14 @@ const Footer = () => {
           <Link href="/" className="hover:text-amber-400 transition">
             Home
           </Link>
-          <Link href="#menu" className="hover:text-amber-400 transition">
+          <Link href="/menu" className="hover:text-amber-400 transition">
             Menu
           </Link>
-          <Link href="#orders" className="hover:text-amber-400 transition">
-            Orders
+          <Link href="services" className="hover:text-amber-400 transition">
+            Services
           </Link>
-          <Link href="#contact" className="hover:text-amber-400 transition">
-            Contact
+          <Link href="/about" className="hover:text-amber-400 transition">
+            About
           </Link>
         </nav>
 

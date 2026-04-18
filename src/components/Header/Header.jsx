@@ -5,17 +5,21 @@ import logo from "../../../public/images/logo-rm.png";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
+import { motion } from "motion/react"
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 const navLinks = [
-  // ["Home", "About", "Orders", "Menu"]
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "Menu", href: "/menu" },
   { name: "Services", href: "/services" },
-  { name: "Menu", href: "/menu" }
+  { name: "About", href: "/about" },
 ];
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
+    <motion.header
+    initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+    className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
       <div className="container mx-auto px-6 flex justify-between items-center h-20">
         
         {/* Logo */}
@@ -80,7 +84,7 @@ const navLinks = [
           </button>
         </Link>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
